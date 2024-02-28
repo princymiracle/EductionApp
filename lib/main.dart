@@ -1,4 +1,4 @@
-import 'package:eductionapp/Screens/Home_Screen.dart';
+import 'package:eductionapp/Screens/HomeScreen/Home_Screen.dart';
 import 'package:eductionapp/Screens/Welcome_Screen.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-     // home: WelcomeScreen(),
-      home: HomePage(),
+      home: WelcomeScreen(),
     );
   }
 }

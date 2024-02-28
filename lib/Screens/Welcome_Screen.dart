@@ -1,4 +1,4 @@
-import 'package:eductionapp/Screens/Home_Screen.dart';
+import 'package:eductionapp/Screens/HomeScreen/Home_Screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {

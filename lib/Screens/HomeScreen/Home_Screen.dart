@@ -1,43 +1,12 @@
 import 'dart:html';
 
+import 'package:eductionapp/Screens/Courses_Screen.dart';
+import 'package:eductionapp/Screens/HomeScreen/jsonlist.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
    HomePage({super.key});
 
-  List catNames = [
-    "Category",
-    "Classes",
-    "Free Course",
-    "BookStore",
-    "Live Course",
-    "LeaderBoard",
-  ];
-
-  List<Color> catColors = [
-    Color(0xFFFFCF2F),
-    Color(0xFF6FE08D),
-    Color(0xFF61BDFD),
-    Color(0xFFFC7C7F),
-    Color(0xFFCB84FB),
-    Color(0xFF78E667),
-  ];
-
-  List<Icon> catIcons = [
-    Icon(Icons.category, color: Colors.white,size: 30,),
-    Icon(Icons.video_library, color: Colors.white,size: 30,),
-    Icon(Icons.assignment, color: Colors.white,size: 30,),
-    Icon(Icons.store, color: Colors.white,size: 30,),
-    Icon(Icons.play_circle_fill, color: Colors.white,size: 30,),
-    Icon(Icons.emoji_events, color: Colors.white,size: 30,),
-  ];
-
-  List imgList = [
-    'Flutter',
-    'React Native',
-    'Python',
-    'C#',
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -196,21 +165,51 @@ class HomePage extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                      childAspectRatio:  (MediaQuery.of(context).size.height - 50 - 25) / (4 * 240),
+                     // childAspectRatio:  (MediaQuery.of(context).size.height - 50 - 25) / (4 * 240),
+                      childAspectRatio: 4/5.5,
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 10,
                     ),
                     itemBuilder: (context, index){
                     return InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => CoursesScreen(imgList[index]),
+                        ),);
+                      },
                       child: Container(
+                        height: 200,
                         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Color(0xFFF5F3FF),
                         ),
                         child: Column(
-                          children: [],
+                          children: [
+                            Padding(
+                                padding: EdgeInsets.all(10),
+                              child: Image.asset(
+                                "assets/images/${imgList[index]}.png",
+                                width: 90,
+                                height: 90,
+                              ),
+                            ),
+                            SizedBox(height: 10,),
+                            Text(
+                              imgList[index],
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black.withOpacity(0.6),
+                              ),
+                            ),
+                            SizedBox(height: 10,),
+                            Text("55 Videos", style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black.withOpacity(0.5),
+                            ),),
+                          ],
                         ),
                       ),
                     );
@@ -221,7 +220,19 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: true,
+          iconSize: 32,
+          selectedItemColor:  Color(0xFF674AEF),
+          selectedFontSize: 18,
+          unselectedItemColor: Colors.grey,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.assignment),label: 'Courses'),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite),label: 'Wishlist'),
+            BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Account'),
+          ],
+      ),
     );
   }
 }
- // 23:53
