@@ -190,8 +190,8 @@ class HomePage extends StatelessWidget {
                                 padding: EdgeInsets.all(10),
                               child: Image.asset(
                                 "assets/images/${imgList[index]}.png",
-                                width: 90,
-                                height: 90,
+                                width: 100,
+                                height: 100,
                               ),
                             ),
                             SizedBox(height: 10,),
