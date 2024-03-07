@@ -92,7 +92,6 @@ class HomePage extends StatelessWidget {
                       hintText: "Search here.....",
                       hintStyle: TextStyle(color: Colors.black.withOpacity(0.5),),
                       prefixIcon: Icon(Icons.search_rounded,size: 25,),
-
                     ),
                   ),
                 )
